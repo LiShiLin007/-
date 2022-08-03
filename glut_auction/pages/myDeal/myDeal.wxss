@@ -1,0 +1,67 @@
+.container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.main{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 2%;
+}
+.time{
+  margin-left: 2%;
+  color: rgb(248, 8, 8);
+}
+.goods{
+  margin: 2%;
+  border-radius: 10rpx;
+  display: flex;
+}
+.goods .img image{
+  width: 300rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  float: left;
+}
+.goodsInfo{
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 2%;
+}
+.title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.call{
+  background-color: chocolate;
+  color: white;
+  border-radius: 30px;
+  font-size: 50rpx;
+  width: 205rpx;
+  box-shadow: 3px 3px 10px rgb(5, 5, 5)
+}
+.addressInfo{
+  position:fixed;
+  top: 20%;
+  width: 70%;
+  background-color: teal;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px black;
+}
+.addressInfo view{
+  margin: 10rpx;
+  margin-left: 30rpx;
+  margin-bottom: 15rpx;
+}
+.addressInfo .img{
+  position: relative;
+  margin-left: 90%;
+  width: 60rpx;
+  height: 60rpx;
+}

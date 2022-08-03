@@ -1,0 +1,36 @@
+<!-- 分类页 -->
+<!-- 父组件 -->
+<view class="main">  
+  <!-- 左边分类栏 -->
+  <view class="leftcontainer">
+    <block wx:for="{{classifys}}" wx:key="index">
+      <view class="classifyItem{{item._id == clickId? 'active':''}}" bindtap="onClickClassify" data-id="{{item._id}}" >
+        {{item.className}}
+      </view>
+    </block>
+  </view>
+  <!-- 右侧内容栏 -->
+  <scroll-view class="rightContainer" scroll-y="true" style="position: absolute; left: 225rpx; top: 0rpx">
+    <block wx:for="{{goods}}" wx:key="index1">
+    <block wx:if="{{item.class_id==clickId}}">
+      <view class="goodsContainer" bindtap="toGoodsInfo" data-goodsid="{{item._id}}">
+        <view class="img">
+          <image class="goodsImage" src="{{item.images[0]}}"></image>
+        </view>
+        <view class="goodsInfo">
+          <view class="title">{{item.name}}</view>
+          <view>
+          <text>\n</text>
+          </view>
+          <view >
+            <image src="/image/jiage.png" style="height: 20px; width: 20px;margin-top: 5rpx;"></image>
+            <text style="font-size: 20px;color: rgb(250, 56, 8);">{{item.start_price}}</text>
+            <image src="/image/guankanliang.png" style="height: 30rpx; width: 30rpx;padding-left: 40rpx;"></image>
+            <text style="font-size: 20rpx;"> {{item.clicks}}</text> 
+          </view>
+        </view>
+      </view>
+    </block>
+    </block>
+  </scroll-view>
+</view>

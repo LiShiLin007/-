@@ -1,0 +1,41 @@
+<block wx:if="{{!hasUser}}">
+<!--登录区域-->
+  <view class="login-container">
+  <image src="/image/initialIcon.png" class="contact-filled" mode="widthFix"></image>
+  <button class="btn-login" bindtap="login">一键登录</button>
+  <text class="tip-text">登录后尽享更多权益</text>
+</view>
+</block>
+<!-- 个人中心区域 -->
+<block wx:else="">
+  <vire bindtap="logout" style="position: fixed;right: 10rpx;top:15rpx;color: white;background-color: red;border-radius: 30px;padding: 10rpx;">注销登录</vire>
+    <!-- 头像昵称区域 -->
+  <view class="top-box">
+    <image src="{{userInfo.avatarUrl}}" class="avatar"></image>
+    <view class="nickname">{{userInfo.nickName}}</view>
+  </view>
+
+    <!--内容管理区域-->
+    <view class="mainContext">
+    <view class="userinfo">
+      <view class="picture">
+        <image class="userinfo-icon" src="/image/fabu.png" bindtap="publisher"></image>
+        我发布的
+      </view>
+      <view class="picture" bindtap="myAuction"> 
+        <image class="userinfo-icon" src="/image/daojishi.png"></image>
+        我参与的
+        </view>
+      <view class="picture" bindtap="myDeal">
+        <image class="userinfo-icon" src="/image/order.png"></image>
+        交易记录
+        </view>
+      <view class="picture" bindtap="toAddress">
+        <image class="userinfo-icon" src="/image/personinfo.png"></image>
+        我的信息
+        </view>
+    </view>
+  </view>
+</block>
+
+

@@ -1,0 +1,91 @@
+.container {
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(232, 234, 235, 0.89);
+}
+
+.main {
+  width: 100%;
+  height: 93%;
+  top: 0;
+  position: absolute;
+  flex: 1;
+  background-color: rgb(221, 221, 204);
+}
+
+swiper {
+  height: 430rpx;
+  background-color: white;
+}
+
+swiper-item {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+swiper-item image {
+  border-radius: 20rpx;
+  height: 100%;
+}
+
+.goodsPrice {
+  margin-top: 15rpx;
+  width: 96%;
+  margin-left: 2%;
+  border-radius: 25rpx;
+  border: aliceblue solid 1px;
+  background-color: aliceblue;
+  box-shadow: 4px 4px 15px rgb(180, 223, 202);
+}
+
+.goodsAuctionRecord {
+  margin-top: 15rpx;
+  width: 96%;
+  height: 250rpx;
+  margin-left: 2%;
+  border-radius: 25rpx;
+  border: rgb(235, 238, 241) solid 1px;
+  background-color: aliceblue;
+  box-shadow: 4px 4px 15px rgb(180, 223, 202);
+}
+
+.describe {
+  margin-top: 15rpx;
+  width: 96%;
+  margin-left: 2%;
+  border-radius: 25rpx;
+  border: rgb(235, 238, 241) solid 1px;
+  background-color: aliceblue;
+  box-shadow: 4px 4px 15px rgb(180, 223, 202);
+}
+
+.bottomContainer {
+  position: absolute;
+  top: 93%;
+  width: 100%;
+  height: 5%;
+  white-space: nowrap;
+  word-break:keep-all;
+}
+
+.addPrice {
+  position: fixed;
+  background-color: rgb(8, 8, 8);
+  color: white;
+  border-radius: 30px;
+  margin-left: 4%;
+  margin-top: 17rpx;
+  padding: 10rpx 10% 10rpx 10%;
+}
+.changePriceIcon{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 4%;
+  padding-top: 12rpx;
+}

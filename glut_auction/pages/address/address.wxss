@@ -1,0 +1,31 @@
+.container{
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(232, 234, 235, 0.89);
+}
+.addInfo{
+  position: fixed;
+  top: 20rpx;
+  padding: 20rpx;
+  background-color: rgb(192, 236, 229);
+  border-radius: 10rpx;
+  width: 96%;
+  box-shadow: 4px 4px 10px rgb(152, 219, 169)
+}
+.addInfo view{
+  margin-bottom: 20rpx;
+}
+.address input{
+  border: black solid 1px;
+  width: 500rpx;
+  min-height: 60rpx;
+  margin-bottom: 15rpx;
+}
+.address button{
+  margin-top: 20rpx;
+}

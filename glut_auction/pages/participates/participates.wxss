@@ -1,0 +1,39 @@
+.container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.main{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 2%;
+}
+.time{
+  margin-left: 2%;
+  color: coral;
+}
+.goods{
+  margin: 2%;
+  border-radius: 10rpx;
+  display: flex;
+}
+.goods .img image{
+  width: 300rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+  float: left;
+}
+.goodsInfo{
+  position: absolute;
+  margin-left: 45%;
+  margin-top: 2%;
+}
+.title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,62 @@
+<!--商品详情页-->
+<view class="container">
+  <scroll-view class="main" scroll-y="true">
+    <!--顶部轮播图-->
+    <swiper autoplay="true" indicator-dots="true">
+      <block wx:for="{{goodsInfo.images}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item}}" mode="heightFix"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--商品标题价格栏-->
+    <view class="goodsPrice">
+      <view style="margin-left: 30rpx;display: flex;align-items: center;">
+        <image src="/image/goodsPrice.png" style="width: 30rpx;height: 30rpx;"></image>
+        <text style="color: rgb(179, 6, 41);font-size: 50rpx;">{{goodsInfo.current_price}} </text>
+        <!--倒计时-->
+        <text wx:if="{{clock == '已经截止'}}" style="margin-left: 60%;color: crimson;">{{clock}}</text>
+        <text wx:else="" style="margin-left: 12%;font-size: 45rpx;color: crimson;">{{clock}}</text>
+      </view>
+
+      <view style="display: flex;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; align-items: center;">
+        <text style="font-size: 30rpx;margin-left: 30rpx;">起拍价 {{goodsInfo.start_price}}</text>
+        <image src="{{publisher.avatarUrl}}" style="width: 50rpx;height: 50rpx;border-radius: 50%;margin-left: 35%;"></image>
+        <text style="font-size: 30rpx;margin-left: 10epx;" decode="true">&nbsp; {{publisher.nickName}} </text>
+      </view>
+
+      <view>
+        <text style="margin-left: 30rpx;"> {{goodsInfo.name}} </text>
+      </view>
+    </view>
+    <!--商品发布者和竞拍记录-->
+    <scroll-view class="goodsAuctionRecord" scroll-y="true">
+      <view style="text-align: center;">
+        <text style="font-size: 40rpx;color: chocolate;">出价记录</text>
+      </view>
+      <!--出价的用户-->
+      <block wx:for="{{auctionRecord}}" wx:key="index">
+        <view>
+          <text style="font-size: 24rpx;">{{item.auctionTimeFormat}}</text>
+          <image src="{{item.userInfo.avatarUrl}}" style="width: 40rpx;height: 40rpx;border-radius: 50%;margin-left: 5%;"></image>
+          <text decode="true"> {{item.userInfo.nickName}}&nbsp;出价了</text>
+          <text style="color: crimson; font-size: 40rpx;">{{item.putPrice}} 元</text>
+        </view>
+      </block>
+
+    </scroll-view>
+    <!--商品详情描述-->
+    <view class="describe">
+      <rich-text>{{goodsInfo.describe}}</rich-text>
+    </view>
+  </scroll-view>
+  <!--底部-->
+  <view class="bottomContainer">
+    <view>
+      <image src="/image/jianhao.png" class="changePriceIcon" bindtap="downPrice"></image>
+      <text class="addPrice">{{changePrice}}元</text>
+      <image src="/image/add.png" class="changePriceIcon" style="width: 67rpx;height: 67rpx;margin-left: 36%;" bindtap="addPrice"></image>
+      <text style="height: 100rpx;float: right;background-color: tomato;padding: 20rpx 40rpx;color: white;" bindtap="putPrice">出个价</text>
+    </view>
+  </view>
+</view>

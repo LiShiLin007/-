@@ -1,0 +1,67 @@
+<view class="container">
+  <block wx:if="{{address.length == 0 && dialog == false}}">
+    <view style="width: 100%;height: 50%;margin: 10%;">
+      <text>你还没有添加地址和联系方式，快去添加吧~</text>
+      <button type="primary" bindtap="toAddAddress">添加</button>
+    </view>
+  </block>
+  <!--默认显示页面-->
+  <block wx:if="{{address.length > 0 && !dialog1}}">
+    <view class="addInfo">
+      <view>地址：{{address[0].address}}</view>
+      <view>姓名：{{address[0].name}}</view>
+      <view>电话：{{address[0].phone}}</view>
+      <view>ＱＱ：{{address[0].qq}}</view>
+      <button type="primary" bindtap="toEditAddress">修改</button>
+    </view>
+  </block>
+  <block wx:if="{{dialog}}">
+    <form bindsubmit="addAddress">
+      <view class="address">
+        <view>
+          <label>姓名：</label>
+          <input type="text" name="name" />
+        </view>
+        <view>
+          <label>宿舍：</label>
+          <input type="text" name="address" />
+        </view>
+        <view>
+          <label>电话：</label>
+          <input type="text" name="phone" maxlength="11" />
+        </view>
+        <view>
+          <label>ＱＱ：</label>
+          <input type="text" name="qq" maxlength="11" />
+        </view>
+        <button form-type="submit" type="primary">提交</button>
+        <button form-type="reset" type="default">重置</button>
+      </view>
+    </form>
+  </block>
+  <!--修改-->
+  <block wx:if="{{dialog1}}">
+    <form bindsubmit="editAddress">
+      <view class="address">
+          <view>
+            <label>姓名：</label>
+            <input type="text" name="name" value="{{address[0].name}}" />
+          </view>
+          <view>
+            <label>宿舍：</label>
+            <input type="text" name="address" value="{{address[0].address}}" />
+          </view>
+          <view>
+            <label>电话：</label>
+            <input type="text" name="phone" maxlength="11" value="{{address[0].phone}}" />
+          </view>
+          <view>
+            <label>ＱＱ：</label>
+            <input type="text" name="qq" maxlength="11" value="{{address[0].qq}}" />
+          </view>
+        <button form-type="submit" type="primary">提交</button>
+        <button form-type="reset" type="default">重置</button>
+      </view>
+    </form>
+  </block>
+</view>

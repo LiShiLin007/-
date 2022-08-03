@@ -1,0 +1,47 @@
+{
+    "pages": [
+        "pages/login/login",
+        "pages/classify/classify",
+        "pages/search/search",
+        "pages/goods/goods",
+        "pages/participates/participates",
+        "pages/userAuctionRedords/userAuctionRecords",
+        "pages/publishs/publishs",
+        "pages/address/address",
+        "pages/searchRes/searchRes",
+        "pages/doPublish/doPublish",
+        "pages/myDeal/myDeal"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "桂工微拍",
+      "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "green",
+    "borderStyle": "white",
+    "color": "black",
+    "list": [
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "/image/category-no.png",
+        "selectedIconPath": "/image/category-yes.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "iconPath": "/image/search-no.png",
+        "selectedIconPath": "/image/search-yes.png",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/login/login",
+        "text": "我的",
+        "iconPath": "/image/person-no.png",
+        "selectedIconPath": "/image/person-yes.png"
+      }
+    ]
+  },
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,20 @@
+<view class="container">
+  <scroll-view class="main" scroll-y="true">
+    <block wx:for="{{goods}}" wx:key="index">
+      <view class="goods" bindtap="toGoodsInfo" data-goodsid="{{item._id}}">
+        <view class="img">
+          <image src="{{item.images[0]}}"></image>
+        </view>
+        <view class="title">
+          <text style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{item.name}}</text>
+          <view>
+            <image src="/image/price.png" style="width: 30rpx;height: 30rpx;"></image>
+            <text style="color: crimson;">{{item.start_price}}</text>
+            <image src="/image/guankanliang.png" style="width: 30rpx;height: 30rpx;margin-left: 30rpx;"></image>
+            <text>{{item.clicks}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

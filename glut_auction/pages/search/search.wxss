@@ -1,0 +1,24 @@
+/* pages/search/search.wxss */
+.search{
+  display: flex;
+  margin-top: 60%;
+  flex-direction: row;
+}
+.weui-input{
+  flex: 1;
+  font-size: 30rpx;
+  text-align: center;
+  width: 70%;
+  height: 35px;
+  margin-left: 10%;
+  border-radius: 40px;
+  border-style: solid;
+  color: #7438c2;
+}
+.search image {
+  height: 60rpx;
+  width: 60rpx;
+  align-self: center;
+  margin-left: 10rpx;
+  margin-right: 40rpx;
+}

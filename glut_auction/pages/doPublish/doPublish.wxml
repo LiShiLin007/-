@@ -1,0 +1,49 @@
+<view class="container">
+  <scroll-view class="main" scroll-y="true">
+    <form bindsubmit="submit" bindreset="reset">
+      <view class="addGoods">
+        <view>
+          <label>标题：</label>
+          <input type="text" name="name" />
+        </view>
+        <view>
+          <label>起拍价：</label>
+          <input type="number" name="start_price" bindblur="checkPrice"/>
+        </view>
+        <view>
+          <view>
+            <picker bindchange="selectClassify" value="{{objectIndex}}" range="{{classifys}}" range-key="className">
+              <view class="picker" style="display: flex;">
+                选择分类：{{classifys[objectIndex].className}}
+                <image src="/image/select.png" style="width: 50rpx;height: 50rpx;"></image>
+              </view>
+            </picker>
+          </view>
+        </view>
+        <view>
+          <label>描述：</label>
+          <textarea name="describe" bindblur="checkDescribe"></textarea>
+        </view>
+        <view>
+          <picker mode="multiSelector" value="{{end_time}}" data-type="end_time" data-param='end_time_p' bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+            <view class="selectTime" style="display: flex;">
+              结束时间：
+              <image src="/image/select.png" wx:if="{{!end_time_p}}" style="width: 50rpx;height: 50rpx;"></image>
+              <text wx:else >{{end_time_p}}</text>
+            </view>
+          </picker>
+        </view>
+        <view style="display: flex;">
+        选择图片：<image src="/image/camera.png" style="width: 60rpx;height: 60rpx;" bindtap="selectImg"></image>
+        </view>
+        <view class="selectImg">
+          <block wx:for="{{selectImgs}}" wx:key="index1">
+            <image src="{{item}}" style="height: 200rpx; margin: 10rpx; border-radius: 7rpx;" mode="heightFix" data-url="{{item}}"></image>
+          </block>
+        </view>
+        <button form-type="submit" type="primary">提交</button>
+        <button form-type="reset" type="default">重置</button>
+      </view>
+    </form>
+  </scroll-view>
+</view>>

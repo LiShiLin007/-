@@ -1,0 +1,39 @@
+<!--交易记录-->
+<view class="container">
+  <scroll-view class="main" scroll-y="true">
+    <block wx:for="{{myDeals}}" wx:key="index">
+      <view class="time">{{item.endTimeFormat}}</view>
+        <view class="goods">
+          <view class="img" bindtap="toGoods" data-id="{{item._id}}">
+            <image src="{{item.images[0]}}"></image>
+          </view>
+          <view class="goodsInfo">
+            <view class="title" bindtap="toGoods" data-id="{{item._id}}">{{item.name}}</view>
+            <view bindtap="toGoods" data-id="{{item._id}}">
+              <text>成交价格</text>
+              <image src="/image/price.png" style="height: 20px; width: 20px;margin-top: 5rpx;"></image>
+              <text style="font-size: 20px;color: rgb(250, 56, 8);">{{item.current_price}}</text>
+            </view>
+            <view class="call" bindtap="callStatus" data-openId="{{item._openid}}">联系卖家</view>
+          </view>
+        </view>
+    </block>
+  </scroll-view>
+  <view class="addressInfo" wx:if="{{callStatus}}">
+    <image src="/image/close.png" class="img" bindtap="closeCall"></image>
+    <view>姓名：
+      <text>{{address[0].name}}</text>
+    </view>
+    <view>地址：
+      <text>{{address[0].address}}</text>
+    </view>
+    <view>电话：
+      <text>{{address[0].phone}}</text>
+      <text style="margin-left: 30rpx;color: rgb(9, 243, 87);" bindtap="copyPhone">复制</text>
+    </view>
+    <view>ＱＱ：
+      <text>{{address[0].qq}}</text>
+      <text style="margin-left: 30rpx;color: rgb(9, 243, 87);" bindtap="copyQQ">复制</text>
+    </view>
+  </view>
+</view>

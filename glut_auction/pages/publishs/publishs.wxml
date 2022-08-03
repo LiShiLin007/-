@@ -1,0 +1,48 @@
+<view class="container">
+  <view class="toPublish" bindtap="doPublish">我要发布</view>
+  <view class="isAuction">
+    <text class="click{{auctionStatus==true? '':'no'}}" bindtap="isauction">正在竞拍</text>
+    <text class="click{{auctionStatus==false? '':'no'}}" bindtap="noauction">竞拍结束</text>
+  </view>
+  <scroll-view class="main" scroll-y="true">
+    <block wx:for="{{goods}}" wx:key="index">
+      <block wx:if="{{item.auctioning == auctionStatus}}">
+        <view class="goods">
+          <view class="img" bindtap="toGoods" data-id="{{item._id}}">
+            <image src="{{item.images[0]}}"></image>
+          </view>
+          <view class="goodsInfo">
+            <view class="title" bindtap="toGoods" data-id="{{item._id}}">{{item.name}}</view>
+            <view bindtap="toGoods" data-id="{{item._id}}">
+              <image src="/image/price.png" style="height: 20px; width: 20px;margin-top: 5rpx;"></image>
+              <text style="font-size: 20px;color: rgb(250, 56, 8);">{{item.current_price}}</text>
+              <image src="/image/guankanliang.png" style="height: 30rpx; width: 30rpx;"></image>
+              <text style="font-size: 20rpx;"> {{item.clicks}}</text>
+            </view>
+            <view wx:if="{{!item.auctioning}}" class="callBuyer" bindtap="callStatus" data-buyer="{{item.buyer_openid}}">
+              联系买家
+            </view>
+            <view class="delect" bindtap="delete" data-delid="{{item._id}}">删除</view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+  <view class="addressInfo" wx:if="{{callStatus}}">
+    <image src="/image/close.png" class="img" bindtap="closeCall"></image>
+    <view>姓名：
+      <text>{{address[0].name}}</text>
+    </view>
+    <view>地址：
+      <text>{{address[0].address}}</text>
+    </view>
+    <view>电话：
+      <text>{{address[0].phone}}</text>
+      <text style="margin-left: 30rpx;color: rgb(9, 243, 87);" bindtap="copyPhone">复制</text>
+    </view>
+    <view>ＱＱ：
+      <text>{{address[0].qq}}</text>
+      <text style="margin-left: 30rpx;color: rgb(9, 243, 87);" bindtap="copyQQ">复制</text>
+    </view>
+  </view>
+</view>

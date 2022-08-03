@@ -1,0 +1,37 @@
+.container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white
+}
+.main{
+  position: fixed;
+  width: 80%;
+  top: 5%;
+  left: 10%;
+}
+.addGoods view{
+  margin-bottom: 10rpx;
+}
+.addGoods input{
+  border: black solid 1px;
+  min-height: 60rpx;
+  margin-bottom: 15rpx;
+}
+.addGoods textarea{
+  height: 150rpx;
+  border: black solid 1px;
+}
+.addGoods button{
+  margin-top: 20rpx;
+}
+.selectTime{
+  margin-top: 15rpx;
+}
+
+.selectImg{
+  display: flex;
+  height: auto
+}
