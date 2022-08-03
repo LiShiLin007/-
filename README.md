@@ -1,37 +1,32 @@
 # glut_auction
 
 #### 介绍
-一个校园竞拍系统，仅限本校使用，价高者可获得卖家联系方式。
+一个校园竞拍微信小程序，因为规模较小，仅限单个学校使用，竞拍时不用付款，因为个人小程序不允许使用支付接口，出价时价高者可获得卖家联系方式，进行线下交易。
+
+### 效果演示
+1、发布商品
+
+
+2、参与商品竞拍
 
 #### 软件架构
-软件架构说明
+微信小程序、微信云开发。
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  云开发数据库需要有5张表，虽然只有5张表，但是实际开发很多数据都需要多表联查。
+![输入图片说明](readmeImage/database.png)
+2.  修改云开发环境
+![输入图片说明](readmeImage/env.png)
+3.  测试阶段需要允许发布者本身可以参与自己的竞拍，上线阶段要设置卖家不能参与自己发布的商品的竞拍。
 
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+#### 开发文档地址
+博客园地址：https://www.cnblogs.com/lishilin-glut/
 
 
-#### 特技
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+
+
+
+
