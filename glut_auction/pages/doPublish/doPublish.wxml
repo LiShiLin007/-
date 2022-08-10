@@ -38,7 +38,7 @@
         </view>
         <view class="selectImg">
           <block wx:for="{{selectImgs}}" wx:key="index1">
-            <image src="{{item}}" style="height: 200rpx; margin: 10rpx; border-radius: 7rpx;" mode="heightFix" data-url="{{item}}"></image>
+            <image src="{{item}}" style="height: 170rpx;width: 170rpx; margin: 10rpx; border-radius: 7rpx;"  data-url="{{item}}"></image>
           </block>
         </view>
         <button form-type="submit" type="primary">提交</button>

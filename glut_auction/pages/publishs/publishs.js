@@ -51,7 +51,6 @@ Page({
   },
 
   isauction() {
-    console.log('点击了正在竞拍')
     this.setData({
       auctionStatus: true
     })

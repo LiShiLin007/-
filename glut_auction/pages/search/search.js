@@ -19,6 +19,9 @@ Page({
       wx.navigateTo({
         url: '/pages/searchRes/searchRes?keyWord='+ keyWord,
       })
+      this.setData({
+        searchWord: ''
+      })
     }
   },
   setKeyWord(e){
@@ -38,6 +41,9 @@ Page({
       //跳转页面并查询数据库
       wx.navigateTo({
         url: '/pages/searchRes/searchRes?keyWord='+ keyWord,
+      })
+      this.setData({
+        searchWord: ''
       })
     }
   },

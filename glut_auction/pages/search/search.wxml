@@ -1,6 +1,5 @@
 <!--搜索框-->
 <view class="search">
-  <input class="weui-input" maxlength="15" placeholder="" type="text" 
-        confirm-type="search" bindconfirm="confirmKeyWord" bindblur="setKeyWord" 	bindinput="setKeyWord"/>
-  <image src="/image/search-no.png" bindtap="onSearch"/>
+  <input class="weui-input" maxlength="15" placeholder="搜点什么..." type="text" confirm-type="search" bindconfirm="confirmKeyWord" bindblur="setKeyWord" bindinput="setKeyWord" value="{{searchWord}}" />
+  <image src="/image/qianjin.png" bindtap="onSearch" />
 </view>

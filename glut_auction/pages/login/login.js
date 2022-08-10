@@ -4,7 +4,7 @@ Page({
     userInfo: null,
     hasUser: false
   },
-  onLoad(option) {
+  onShow(option) {
     try {
       let user = wx.getStorageSync('userInfo')
       if (user) {
@@ -12,7 +12,6 @@ Page({
           userInfo: user,
           hasUser: true
         })
-        console.log('成功获取用户缓存', user)
       }
     } catch (e) {
       console.log('获取缓存失败', e)
@@ -49,9 +48,7 @@ Page({
                 success: res => {
                   try {
                     wx.setStorageSync('userInfo', res.data[0])
-                    console.log('成功添加用户缓存')
                   } catch (e) {
-                    console.error('添加用户缓存失败！', e)
                   }
                 }
               })
@@ -60,9 +57,7 @@ Page({
               //添加用户到本地缓存
               try {
                 wx.setStorageSync('userInfo', res.data[0])
-                console.log('成功添加用户缓存')
               } catch (e) {
-                console.error('添加用户缓存失败！', e)
               }
             }
           }
@@ -71,15 +66,24 @@ Page({
     })
   },
   logout(){
-    this.setData({
-      hasUser: false,
-      userInfo: null
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      content: '是否注销？',
+      success: (res)=>{
+        if(res.confirm){
+          this.setData({
+            hasUser: false,
+            userInfo: null
+          })
+          try{
+            wx.removeStorageSync('userInfo')
+          }
+          catch(e){
+          }
+        }
+      }
     })
-    try{
-      wx.removeStorageSync('userInfo')
-    }
-    catch(e){
-    }
+ 
   },
   toAddress() {
     wx.navigateTo({
@@ -102,6 +106,18 @@ Page({
   myDeal() {
     wx.navigateTo({
       url: '/pages/myDeal/myDeal',
+    })
+  },
+  //个人动态
+  myarticle(){
+    wx.navigateTo({
+      url: '/pages/myArticle/myarticle',
+    })
+  },
+  //问题反馈
+  feedback(){
+    wx.navigateTo({
+      url: '/pages/feedback/feedback',
     })
   }
 })

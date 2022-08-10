@@ -1,9 +1,7 @@
 const time_transform = require("../../util/time_transform.js")
 
 var goods_id
-var myTime //计数器
 Page({
-
   data: {
     goodsInfo: null,
     publisher: null,
@@ -96,58 +94,63 @@ Page({
         title: '请先登录',
         icon: 'error'
       })
-      setTimeout(() => {
-        wx.switchTab({
-          url: '/pages/login/login',
-        })
-      }, 500)
+      this.login()
     } else {
-      if(this.data.goodsInfo.auctioning){
-        wx.showModal({
-          title: '确认出价',
-          content: '价高者得，竞拍结束价高者可在竞拍记录中查看卖家联系信息，感谢您的参与！',
-          success: (res) => {
-            if (res.confirm) {
-              wx.showLoading({
-                title: '正在出价...',
-              })
-              //保存竞拍记录到数据库
-              wx.cloud.database().collection('goodsAuctionRecord').add({
-                  data: {
-                    goodsID: goods_id,
-                    userInfo: userInfo,
-                    putPrice: price,
-                    auctionTime: nowTime,
-                    auctionTimeFormat: timeFormat
-                  },
-                  success: res => {}
-                }),
-                //更新当前价
-                wx.cloud.database().collection('goods').doc(goods_id).update({
-                  data: {
-                    current_price: price
-                  }
+      if (this.data.goodsInfo.auctioning) {
+        //判断自己是否是发布者
+        //获取出价用户
+        let userInfo = wx.getStorageSync('userInfo')
+        if (this.data.publisher._openid == userInfo._openid) {
+          wx.showToast({
+            title: '这是你发布的物品哦',
+            icon: 'none'
+          })
+        } else {
+          wx.showModal({
+            title: '确认出价',
+            content: '价高者得，竞拍结束价高者可在竞拍记录中查看卖家联系信息，感谢您的参与！',
+            success: (res) => {
+              if (res.confirm) {
+                wx.showLoading({
+                  title: '正在出价...',
                 })
-              let _this = this
-              setTimeout(function () {
-                wx.hideLoading({
-                  success: (res) => {
-                    wx.showToast({
-                      title: '出价成功',
-                    })
-                    //刷新页面数据
-                    _this.onShow()
-                  }
-                })
-              }, 500)
-            } else {}
-          }
-        })
-      }
-      else{
+                //保存竞拍记录到数据库
+                wx.cloud.database().collection('goodsAuctionRecord').add({
+                    data: {
+                      goodsID: goods_id,
+                      userInfo: userInfo,
+                      putPrice: price,
+                      auctionTime: nowTime,
+                      auctionTimeFormat: timeFormat
+                    },
+                    success: res => {}
+                  }),
+                  //更新当前价
+                  wx.cloud.database().collection('goods').doc(goods_id).update({
+                    data: {
+                      current_price: price
+                    }
+                  })
+                let _this = this
+                setTimeout(function () {
+                  wx.hideLoading({
+                    success: (res) => {
+                      wx.showToast({
+                        title: '出价成功',
+                      })
+                      //刷新页面数据
+                      _this.onShow()
+                    }
+                  })
+                }, 500)
+              } else {}
+            }
+          })
+        }
+      } else {
         wx.showToast({
           title: '竞拍已结束',
-          icon:'error'
+          icon: 'error'
         })
       }
     }
@@ -172,12 +175,10 @@ Page({
       success: res => {
         //取出竞拍结束时间，精确到秒
         let auctionEndtime = res.data.end_time
-        console.log(res)
         //获取当前系统时间,只精确到秒
         var nowTime = new Date().getTime() / 1000
         //剩余时间总的秒数
         var totalSecond = Math.floor(auctionEndtime - nowTime)
-        console.log('剩余秒数', totalSecond)
         //计算倒计时
         this.doCountdown(totalSecond)
       }
@@ -226,7 +227,7 @@ Page({
         }
         totalSecond--;
       }, 1000)
-    }else{
+    } else {
       this.setData({
         clock: '已经截止'
       })
@@ -244,5 +245,55 @@ Page({
     //n天n小时n分钟后剩余秒数
     var sec = Math.floor(totalSecond % 60)
     return day + "天" + hour + "小时" + min + "分" + sec + "秒"
-  }
+  },
+  //预览商品图片
+  previewImg(e){
+    let index = e.currentTarget.dataset.index
+    let imagesUrl = this.data.goodsInfo.images
+    wx.previewImage({
+      urls: imagesUrl,
+      current: imagesUrl[index]
+    })
+  },
+  //未登录用户要先登录
+  login() {
+    wx.getUserProfile({
+      desc: '获取用户信息',
+      success: res => {
+        wx.showToast({
+          title: '登录成功',
+        })
+        var user = res.userInfo
+        //检查数据库是否有该用户
+        wx.cloud.database().collection('userInfo').where({
+          _openid: user._openid
+        }).get({
+          success: res => {
+            //原先没有添加，这里添加
+            if (!res.data[0]) {
+              //将数据添加到数据库
+              wx.cloud.database().collection('userInfo').add({
+                data: {
+                  avatarUrl: user.avatarUrl,
+                  nickName: user.nickName
+                },
+                success: res => {
+                  try {
+                    wx.setStorageSync('userInfo', res.data[0])
+                  } catch (e) {
+                  }
+                }
+              })
+            } else {
+              //添加用户到本地缓存
+              try {
+                wx.setStorageSync('userInfo', res.data[0])
+              } catch (e) {
+              }
+            }
+          }
+        })
+      }
+    })
+  },
 })

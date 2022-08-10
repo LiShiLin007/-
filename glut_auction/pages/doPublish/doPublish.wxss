@@ -4,25 +4,29 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: white
+  background-color: rgb(233, 240, 241)
 }
 .main{
   position: fixed;
   width: 80%;
   top: 5%;
   left: 10%;
+  bottom: 10rpx;
 }
 .addGoods view{
   margin-bottom: 10rpx;
 }
 .addGoods input{
-  border: black solid 1px;
+  background-color: white;
   min-height: 60rpx;
   margin-bottom: 15rpx;
+  border-radius: 15rpx;
 }
 .addGoods textarea{
-  height: 150rpx;
-  border: black solid 1px;
+  max-height: 150rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  width: 99%;
 }
 .addGoods button{
   margin-top: 20rpx;
@@ -33,5 +37,6 @@
 
 .selectImg{
   display: flex;
+  flex-wrap: wrap;
   height: auto
 }

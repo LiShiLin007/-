@@ -15,7 +15,7 @@
     <block wx:if="{{item.class_id==clickId}}">
       <view class="goodsContainer" bindtap="toGoodsInfo" data-goodsid="{{item._id}}">
         <view class="img">
-          <image class="goodsImage" src="{{item.images[0]}}"></image>
+          <image class="goodsImage" mode="aspectFill" src="{{item.images[0]}}"></image>
         </view>
         <view class="goodsInfo">
           <view class="title">{{item.name}}</view>

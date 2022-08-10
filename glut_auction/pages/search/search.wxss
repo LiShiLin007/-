@@ -1,4 +1,3 @@
-/* pages/search/search.wxss */
 .search{
   display: flex;
   margin-top: 60%;
@@ -13,12 +12,12 @@
   margin-left: 10%;
   border-radius: 40px;
   border-style: solid;
-  color: #7438c2;
+  color: #7548b1;
 }
 .search image {
-  height: 60rpx;
-  width: 60rpx;
+  height: 55rpx;
+  width: 55rpx;
   align-self: center;
-  margin-left: 10rpx;
+  margin-left: 16rpx;
   margin-right: 40rpx;
 }

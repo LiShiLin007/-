@@ -1,0 +1,14 @@
+<view class="main">
+  <!--文字区-->
+  <view class="text" >
+    <textarea fixed="true" auto-height placeholder="这一刻的想法..." bindinput="setText" style="margin: 10rpx;width: 96%;max-height: 90%;"/> 
+  </view>
+  <!--图片区-->
+  <view class="img">
+    <block wx:for="{{selectImgs}}" wx:key="index">
+      <image src="{{item}}" mode="aspectFill" style="height: 220rpx;width: 220rpx;margin: 10rpx;"></image>
+    </block>
+    <image wx:if="{{selectImgs.length != 9}}" src="/image/addImg.png" bindtap="selectImg" style="height: 80rpx;width: 80rpx;padding: 70rpx;background-color: rgb(241, 236, 236);margin-top: 10rpx;"></image>
+  </view>
+  <view class="publish" bindtap="publish">发表</view>
+</view>

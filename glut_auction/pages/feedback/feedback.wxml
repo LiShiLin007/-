@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="jianyi">
+    <text>
+      遇到问题了？你可以点击此处向微信反馈
+    </text>
+    <button open-type="feedback">反馈与建议</button>
+    <text>或者直接联系开发者</text>
+  </view>
+  <view class="QR-code">
+    <image src="/image/wechar-QR-code.jpg" mode="heightFix" show-menu-by-longpress="true"></image>
+    <image src="/image/QQ-code.jpg" mode="heightFix" show-menu-by-longpress="true"></image>
+  </view>
+</view>

@@ -129,7 +129,6 @@ Page({
             auctioning: true
           },
           success: (res) => {
-            console.log('添加商品')
             wx.hideLoading({
               success: (res) => {
                 wx.navigateBack({

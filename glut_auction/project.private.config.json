@@ -48,6 +48,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/publishArticle/publishArticle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/campusCircle/campusCircle",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

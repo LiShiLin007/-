@@ -1,0 +1,32 @@
+<scroll-view class="main" scroll-y="true">
+  <block wx:for="{{articles}}" wx:key="index" wx:for-item="list">
+    <!--帖子区域-->
+    <view class="artical">
+      <!--头像昵称-->
+      <view class="nickName">
+        <image class="avatar" src="{{list.publisher.avatarUrl}}"></image>
+        <view>{{list.publisher.nickName}}</view>
+      </view>
+      <!--文本-->
+      <view class="text" bindtap="toArticle" data-id="{{list._id}}">
+        {{list.content}}
+      </view>
+      <!--图片-->
+      <view class="img">
+        <block wx:for="{{list.imagesUrl}}" wx:key="index" wx:for-item="img">
+          <image src="{{img}}" mode="aspectFill" show-menu-by-longpress="true" style="width: 200rpx; height: 200rpx;margin: 2rpx;" bindtap="previewImg" data-images="{{list.imagesUrl}}" data-index="{{index}}"></image>
+        </block>
+      </view>
+      <!--底部-->
+      <view class="bottom">
+        <text style="font-size: 27rpx;">{{list.publishFormatTime}}</text>
+        <image src="/image/guankanliang.png" style="margin-left: 20rpx;"></image>
+        <text>{{list.click}}</text>
+        <image src="/image/comment.png" bindtap="toArticle" data-id="{{list._id}}"></image>
+        <text bindtap="toArticle" data-id="{{list._id}}">{{list.comment.length}}</text>
+        <image src="{{list.praiseStatus? '/image/praise-yes.png':'/image/praise-no.png'}}" bindtap="praise" data-articleid="{{list._id}}" data-ind="{{index}}"></image>
+        <text>{{list.like.length}}</text>
+      </view>
+    </view>
+  </block>
+</scroll-view>

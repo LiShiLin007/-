@@ -5,7 +5,7 @@
     <swiper autoplay="true" indicator-dots="true">
       <block wx:for="{{goodsInfo.images}}" wx:key="index">
         <swiper-item>
-          <image src="{{item}}" mode="heightFix"></image>
+          <image src="{{item}}" mode="heightFix" show-menu-by-longpress="true" bindtap="previewImg" data-index="{{index}}"></image>
         </swiper-item>
       </block>
     </swiper>
@@ -29,7 +29,7 @@
         <text style="margin-left: 30rpx;"> {{goodsInfo.name}} </text>
       </view>
     </view>
-    <!--商品发布者和竞拍记录-->
+    <!--竞拍记录-->
     <scroll-view class="goodsAuctionRecord" scroll-y="true">
       <view style="text-align: center;">
         <text style="font-size: 40rpx;color: chocolate;">出价记录</text>

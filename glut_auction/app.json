@@ -5,12 +5,17 @@
         "pages/search/search",
         "pages/goods/goods",
         "pages/participates/participates",
-        "pages/userAuctionRedords/userAuctionRecords",
         "pages/publishs/publishs",
         "pages/address/address",
         "pages/searchRes/searchRes",
         "pages/doPublish/doPublish",
-        "pages/myDeal/myDeal"
+        "pages/myDeal/myDeal",
+        "pages/campusCircle/campusCircle",
+        "pages/article/article",
+        "pages/publishArticle/publishArticle",
+        "pages/myArticle/myarticle",
+        "pages/userArticle/userArticle",
+        "pages/feedback/feedback"
     ],
     "window": {
       "backgroundTextStyle": "light",
@@ -19,7 +24,7 @@
       "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "green",
+    "selectedColor": "#00BFFF",
     "borderStyle": "white",
     "color": "black",
     "list": [
@@ -34,6 +39,12 @@
         "iconPath": "/image/search-no.png",
         "selectedIconPath": "/image/search-yes.png",
         "text": "搜索"
+      },
+      {
+        "pagePath": "pages/campusCircle/campusCircle",
+        "iconPath": "/image/circle-no.png",
+        "selectedIconPath": "/image/circle-yes.png",
+        "text": "桂工圈"
       },
       {
         "pagePath": "pages/login/login",

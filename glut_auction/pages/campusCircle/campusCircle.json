@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "桂工圈",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 100
+}

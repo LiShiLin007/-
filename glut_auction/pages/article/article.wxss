@@ -1,0 +1,128 @@
+.container {
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(249, 253, 255, 0.89);
+}
+.main {
+  width: 98%;
+  height: 93%;
+  top: 0;
+  position: absolute;
+  flex: 1;
+}
+.article{
+  width: 96%;
+  display: flex;
+}
+.nickName{
+  margin-top: 2%;
+  margin-left: 2%;
+  height: 8%;
+  width: 98%;
+  display: flex;
+  float: left;
+}
+.nickName image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+.nickName view{
+  position: absolute;
+  margin-left: 13%;
+  color: rgb(7, 77, 138);
+  font-size: 35rpx;
+}
+.text{
+  margin-left: 15%;
+  font-family: 'STZhongsong';
+}
+.img{
+  margin-top: 2%;
+  margin-left: 15%;
+  max-height: 40%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.bottom{
+  margin-top: 2%;
+  margin-left: 15%;
+  height: 4%;
+  display: flex;
+}
+.bottom image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 30rpx;
+}
+
+.commentArea{
+  margin-top: 5%;
+  height: auto;
+}
+.commentNickName{
+  margin-top: 2%;
+  display: flex;
+  height: 60rpx;
+}
+.commentNickName image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-left: 3%;
+}
+.commentNickName text{
+  font-size: 22rpx;
+  font-family: 'STHeiti';
+  font-weight: bold;
+  margin-top: 8rpx;
+  margin-left: 2%;
+}
+.commentArea .context{
+  margin-left: 11%;
+  font-family: 'STKaiti';
+  margin-top: 5rpx;
+  line-height: 1.5em;
+  letter-spacing: 2rpx;
+}
+.doComment{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top:93%;
+  bottom: 1rpx;
+  border-top: aliceblue 1rpx solid;
+}
+.doComment image{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin: 17rpx;
+}
+.doComment textarea{
+  background-color: rgba(221, 232, 238, 0.829);
+  border-radius: 30px;
+  margin: 15rpx;
+  min-height: 50rpx;
+  width: 73%;
+  max-height: 50rpx;
+  padding-top:15rpx;
+  padding-left: 20rpx;
+}
+.doComment .publish{
+  width: 90rpx;
+  background-color: green;
+  color: white;
+  margin-left: 13rpx;
+  margin-top: 18rpx;
+  border-radius: 30px;
+  padding-top: 8rpx;
+  padding-left: 20rpx;
+  height: 50rpx;
+  box-shadow: 2px 2px 10px rgb(24, 29, 18);
+}

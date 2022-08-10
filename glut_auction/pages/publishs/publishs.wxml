@@ -22,7 +22,7 @@
             <view wx:if="{{!item.auctioning}}" class="callBuyer" bindtap="callStatus" data-buyer="{{item.buyer_openid}}">
               联系买家
             </view>
-            <view class="delect" bindtap="delete" data-delid="{{item._id}}">删除</view>
+            <view wx:else="" class="delect" bindtap="delete" data-delid="{{item._id}}">删除</view>
           </view>
         </view>
       </block>

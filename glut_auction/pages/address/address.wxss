@@ -21,10 +21,11 @@
   margin-bottom: 20rpx;
 }
 .address input{
-  border: black solid 1px;
+  background-color: white;
   width: 500rpx;
   min-height: 60rpx;
   margin-bottom: 15rpx;
+  border-radius: 15rpx;
 }
 .address button{
   margin-top: 20rpx;
